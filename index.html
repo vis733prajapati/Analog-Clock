@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        .container {
+            width: 40vw;
+            height: 40vw;
+            margin: 10% auto;
+            background-image: url("clock.png");
+            background-size: 100%;
+           
+            position: relative;
+            background-repeat: no-repeat;
+            background-color: pink;
+            border-radius: 50%;
+            box-shadow: 10px 10px 50px pink;
+        }
+
+        #hour,
+        #minute,
+        #second {
+            position: absolute;
+            
+            transform-origin: bottom;
+            border-radius: 15px;
+        }
+
+        #hour {
+            width: 2%;
+            height: 25%;
+            top: 25%;
+            left: 48.80%;
+            background-color: red;
+        }
+
+        #minute {
+
+            width: 1.5%;
+            height: 33%;
+            top: 17%;
+            left: 49.05%;
+            background-color: green;
+        }
+
+        #second {
+            background-color: black;
+            width: 1%;
+            height: 40%;
+            top: 10%;
+            left: 49.30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <script>
+
+
+        const timeInterval = setInterval(time, 1000);
+
+        function time() {
+            const d = new Date();
+            h = d.getHours();
+            m = d.getMinutes();
+            s = d.getSeconds();
+
+            hrotation = 30 * h + m / 2;
+            mrotation = 6 * m;
+            srotation = 6 * s;
+
+
+
+            document.getElementById("hour").style.transform = `rotate(${hrotation}deg)`;
+            document.getElementById("minute").style.transform = `rotate(${mrotation}deg)`;
+            document.getElementById("second").style.transform = `rotate(${srotation}deg)`;
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
